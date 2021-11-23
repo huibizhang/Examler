@@ -82,6 +82,10 @@ export default {
           name: "我的試卷庫",
           link: "/"
         },
+        {
+          name: "設定",
+          link: "/setting"
+        },
       ],
     }
   },

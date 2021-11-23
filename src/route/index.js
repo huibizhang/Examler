@@ -9,7 +9,7 @@ const routes = [
   {
     path: "/exam/",
     name: "Exam",
-    component: () => import("../views/MyBank.vue"),
+    component: () => import("../views/Setting.vue"),
   },
   {
     path: "/review/",
@@ -17,9 +17,9 @@ const routes = [
     component: () => import("../views/Review.vue"),
   },
   {
-    path: "/mybank",
-    name: "MyBank",
-    component: () => import("../views/MyBank.vue"),
+    path: "/setting/",
+    name: "Setting",
+    component: () => import("../views/Setting.vue"),
   },
 ];
 
