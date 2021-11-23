@@ -16,7 +16,10 @@
         </svg>
       </div>
       
-      <div class="w-10 h-10 flex justify-center items-center text-white hover:bg-white/20 rounded-full">
+      <div
+        class="w-10 h-10 flex justify-center items-center text-white hover:bg-white/20 rounded-full"
+        @click="$emit('rightIconClicked')"
+      >
         <slot></slot>
       </div>
     </div>

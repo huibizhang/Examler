@@ -1,6 +1,6 @@
 <template>
   <Header :title="'我的試卷庫'"></Header>
-  <h1>This is a home page</h1>
+  <h1>我的試卷庫</h1>
   <HelloWorld :msg="'Hello Vue 3.0 + Vite'" />
 </template>
 
