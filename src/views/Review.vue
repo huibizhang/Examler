@@ -40,7 +40,7 @@ export default {
     const _me = this
     axios({
       method: 'post',
-      url: 'http://huibizhang.com/examler/api/getter.php',
+      url: 'https://huibizhang.com/examler/api/getter.php',
       data: {
         subject: _me.subject,
         mode: 'review'
