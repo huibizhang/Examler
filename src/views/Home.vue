@@ -4,11 +4,13 @@
 
     <div class="flex-1 w-full bg-gray-100">
       <div class="w-full h-full overflow-y-scroll space-y-3 p-3">
+        <div v-if="!datas || datas.results.length===0" class="text-lg w-full h-full flex flex-col justify-center items-center space-y-5">
+          <span class="text-gray-500">目前還沒有任何試卷</span>
+
+          <button class="p-3 bg-green-500 text-white font-bold rounded-lg">前往挑選考科</button>
+        </div>
         <ExpCard v-for="bank in datas.results" :key="bank.subject" v-bind="bank" />
       </div>
-      <LoadingScreen :open="open">
-        考科讀取中 ... 
-      </LoadingScreen>
     </div>
   </div>
 </template>
@@ -24,7 +26,6 @@ export default {
   data() {
     return {
       datas: "",
-      open: false,
     }
   },
   mounted () {
@@ -37,13 +38,15 @@ export default {
       }
 
     } else {
-      this.$router.push("/banks/")
-      return
+      this.datas = {
+        results: []
+      }
     }
+
+    console.log(this.datas)
   },
   components: {
     Header,
-    LoadingScreen,
     ExpCard,
   },
 };
