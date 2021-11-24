@@ -112,10 +112,6 @@ export default {
 
     document.title = `${this.title} | 做題目 - 考試了 Examler`
 
-    for(let i=0;i<this.count;i++){
-      this.answerList.push('')
-    }
-
     this.reExam()
   },
   methods: {
@@ -219,6 +215,12 @@ export default {
       this.answerList[index] = e
     },
     reExam () {
+
+      this.answerList = []
+      for(let i=0;i<this.count;i++){
+        this.answerList.push('')
+      }
+
       const _me = this
 
       _me.mode = "exam"
@@ -236,6 +238,13 @@ export default {
       })
       .then(function (response) {
         _me.datas = response.data
+
+        document.getElementById("lister").scrollTo({
+          top: 0,
+          left: 0,
+          behavior: 'auto'
+        });
+
         _me.open = false
       });
     }
