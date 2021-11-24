@@ -12,7 +12,7 @@
 
     <div class="w-full flex-1 overflow-hidden">
       <!-- {{ datas }} -->
-      <div id="lister" class="w-full h-full overflow-y-scroll p-2 bg-gray-200 space-y-2">
+      <div id="lister" class="w-full h-full overflow-y-scroll p-2 bg-gray-200 space-y-2" style="overscroll-behavior:contain;">
         <div v-if="mode==='exam-finished'" class="w-full mt-3 mb-3 text-center" ref="score">
           <div class="bg-white inline-block p-3 rounded-lg text-center space-y-2 font-bold inset-0 mx-auto shadow-lg">
             <div>作答分數</div>

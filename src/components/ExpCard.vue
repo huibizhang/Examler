@@ -4,8 +4,9 @@
       <div class="w-20 h-20 p-5 bg-yellow-100 flex-none group-hover:bg-yellow-200 transition-all">
         <img class="w-full h-full" src="../assets/document.png" />
       </div>
-      <div class="flex-1 flex items-center p-3 font-bold text-lg">
+      <div class="flex-1 flex flex-col justify-center p-3 font-bold text-lg">
         {{title}}
+        <span class="text-sm text-gray-400">{{total}} 題抽 {{count}} 題</span>
       </div>
     </div>
     <div class="grid grid-cols-3 place-items-center flex-none w-full py-3 border-t text-gray-600">
