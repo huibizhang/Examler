@@ -8,7 +8,7 @@
 
     <div class="w-full flex-1 overflow-hidden">
       <!-- {{ datas }} -->
-      <div class="w-full h-full overflow-y-scroll p-2 bg-gray-200 space-y-2">
+      <div class="w-full h-full overflow-y-scroll p-2 bg-gray-200 space-y-2" style="overscroll-behavior:contain;">
         <Question
            v-for="q in datas.results"
            :key="q.no"
@@ -37,6 +37,7 @@ export default {
       expId: "",
       subject: "",
       datas: "",
+      range: [],
       open: true,
     }
   },
@@ -48,10 +49,11 @@ export default {
     const _me = this
     axios({
       method: 'post',
-      url: 'https://huibizhang.com/examler/api/getter.php',
+      url: 'https://huibizhang.com/examler/api/getter2.php',
       data: {
         subject: _me.subject,
         mode: 'review',
+        range: _me.range.join(",")
       },
     })
     .then(function (response) {
@@ -79,6 +81,7 @@ export default {
         this.title = examinationPaper[0].title
         this.subject = examinationPaper[0].subject
         this.expId = examinationPaper[0].expId
+        this.range = examinationPaper[0].range
       }
     },
   },

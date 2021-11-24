@@ -1,5 +1,8 @@
 <template>
-  <div class="w-full h-20 shadow-md bg-white hover:bg-gray-50 hover:ring-2 ring-red-400 group rounded-lg overflow-hidden flex transition-all">
+  <div
+    class="w-full h-20 shadow-md bg-white hover:bg-gray-50 hover:ring-2 ring-red-400 group rounded-lg overflow-hidden flex transition-all"
+    @click="$emit('selected')"  
+  >
     <div class="w-20 h-20 p-5 bg-red-100 flex-none group-hover:bg-red-200 transition-all">
       <img class="w-full h-full" src="../assets/book.png" />
     </div>

@@ -24,6 +24,11 @@
         <span class="text-cyan-500">E</span>x<span class="text-red-500">a</span>mler
       </div>
 
+      <div class="w-full flex flex-col items-center space-y-1">
+        <span class="text-xs text-gray-400">目前考卷</span>
+        <span class="font-bold text-gray-600">{{title}}</span>
+      </div>
+
       <!-- 關閉 drawer 的叉叉 -->
       <div
         class="absolute top-0 right-0 m-2 p-2 hover:bg-black/5 rounded-full cursor-pointer"
@@ -86,6 +91,7 @@ export default {
   props:["open"],
   data() {
     return {
+      title: "",
       opened: false,
       links: [
         {
@@ -125,6 +131,24 @@ export default {
   },
   mounted() {
     this.opened = this.open
+
+    const examinationPapers = JSON.parse(window.localStorage.getItem('examinationPapers'))
+    const currentExpId = window.localStorage.getItem('currentExpId')
+
+    if(!currentExpId) {
+      this.$router.push("/")
+      return
+    }
+
+    if(examinationPapers && examinationPapers.length>0) {
+      
+      const examinationPaper = examinationPapers.filter(exp => {
+        console.log(exp.expId)
+        return exp.expId === currentExpId
+      })
+
+      this.title = examinationPaper[0].title
+    }
   },
   watch: {
     open(newVal, oldVal) {

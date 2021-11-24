@@ -2,7 +2,7 @@
   <!-- <div class="p-3 border-t first:border-t-0"> -->
   <div
     v-show="onShowMistake ? userAns!==ans : true"
-    :id="'no' + no"
+    :id="`no${no}`"
     class="p-2 rounded-lg overflow-hidden"
     :class="[mode==='exam-finished' && userAns!==ans? 'bg-red-200': 'bg-white']"
   >
@@ -96,7 +96,7 @@ export default {
 
       this.userAns = ansPressed
       this.$emit("userAnswered", ansPressed)
-    }
+    },
   }
 }
 </script>

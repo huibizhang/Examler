@@ -1,12 +1,17 @@
 <template>
-  <div class="w-full shadow-md bg-white hover:bg-gray-50 hover:ring-2 ring-yellow-400 group rounded-lg overflow-hidden flex flex-col transition-all">
-    <div class="flex flex-none">
+  <div class="w-full shadow-md bg-white hover:bg-gray-50 hover:ring-2 ring-yellow-400 group rounded-lg overflow-hidden flex flex-col transition-all select-none">
+    <div class="flex flex-none items-center">
       <div class="w-20 h-20 p-5 bg-yellow-100 flex-none group-hover:bg-yellow-200 transition-all">
         <img class="w-full h-full" src="../assets/document.png" />
       </div>
       <div class="flex-1 flex flex-col justify-center p-3 font-bold text-lg">
         {{title}}
         <span class="text-sm text-gray-400">{{total}} 題抽 {{count}} 題</span>
+      </div>
+      <div class="w-10 h-10 mr-1 flex justify-center items-center hover:bg-gray-200 rounded-full transition-all">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
+      </svg>
       </div>
     </div>
     <div class="grid grid-cols-3 place-items-center flex-none w-full py-3 border-t text-gray-600">
