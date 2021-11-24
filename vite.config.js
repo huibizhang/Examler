@@ -32,7 +32,12 @@ export default defineConfig({
             purpose: 'any maskable',
           }
         ]
-      }
+      },
+      url_handlers: [
+        {
+          "origin": "http://192.168.0.48:5000/"
+        },
+      ]
     })
   ]
 })

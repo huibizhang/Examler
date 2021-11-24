@@ -17,9 +17,24 @@ const routes = [
     component: () => import("../views/Review.vue"),
   },
   {
+    path: "/history/",
+    name: "History",
+    component: () => import("../views/History.vue"),
+  },
+  {
     path: "/setting/",
     name: "Setting",
     component: () => import("../views/Setting.vue"),
+  },
+  {
+    path: "/add/",
+    name: "Add",
+    component: () => import("../views/Add.vue"),
+  },
+  {
+    path: "/banks/",
+    name: "Banks",
+    component: () => import("../views/Banks.vue"),
   },
 ];
 

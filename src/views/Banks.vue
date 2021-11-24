@@ -1,10 +1,10 @@
 <template>
   <div class="flex flex-col w-screen h-screen">
-    <Header :title="'我的試卷庫'"></Header>
+    <Header :title="'瀏覽所有考科'"></Header>
 
     <div class="flex-1 w-full bg-gray-100">
       <div class="w-full h-full overflow-y-scroll space-y-3 p-3">
-        <ExpCard v-for="bank in datas.results" :key="bank.subject" v-bind="bank" />
+        <BankCard v-for="bank in datas.results" :key="bank.subject" v-bind="bank" />
       </div>
       <LoadingScreen :open="open">
         考科讀取中 ... 
@@ -17,34 +17,33 @@
 import axios from "axios";
 import Header from "../components/Header.vue";
 import LoadingScreen from "../components/LoadingScreen.vue";
-import ExpCard from "../components/ExpCard.vue";
+import BankCard from "../components/BankCard.vue";
 
 export default {
-  name: "Home",
+  name: "Banks",
   data() {
     return {
       datas: "",
-      open: false,
+      open: true,
     }
   },
   mounted () {
-    const examinationPapers = JSON.parse(window.localStorage.getItem('examinationPapers'))
-    
-    if(examinationPapers && examinationPapers.length>0) {
 
-      this.datas = {
-        results: examinationPapers
-      }
+    const _me = this
+    axios({
+      method: 'get',
+      url: 'https://huibizhang.com/examler/api/get_banks.php',
+    })
+    .then(function (response) {
+      _me.datas = response.data
+      _me.open = false
+    });
 
-    } else {
-      this.$router.push("/banks/")
-      return
-    }
   },
   components: {
     Header,
     LoadingScreen,
-    ExpCard,
+    BankCard,
   },
 };
 </script>

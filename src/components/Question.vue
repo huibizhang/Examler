@@ -1,6 +1,7 @@
 <template>
   <!-- <div class="p-3 border-t first:border-t-0"> -->
   <div
+    v-show="onShowMistake ? userAns!==ans : true"
     :id="'no' + no"
     class="p-2 rounded-lg overflow-hidden"
     :class="[mode==='exam-finished' && userAns!==ans? 'bg-red-200': 'bg-white']"
@@ -34,7 +35,7 @@
       <div
         v-for="i in 4"
         :key="`option-${i-1}`"
-        class="py-1 hover:bg-black/5 transition-all flex space-x-1"
+        class="py-2 hover:bg-black/5 transition-all flex space-x-1"
         @click="answered(optionType(optionSign)[i-1])"
       >
         <div>({{optionType(optionSign)[i-1]}})</div>
@@ -59,6 +60,7 @@ export default {
     "optionSign",
     "mode",
     "examSerial",
+    "onShowMistake",
   ],
   data () {
     return {
