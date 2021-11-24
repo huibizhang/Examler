@@ -7,7 +7,10 @@
         <div v-if="!datas || datas.results.length===0" class="text-lg w-full h-full flex flex-col justify-center items-center space-y-5">
           <span class="text-gray-500">目前還沒有任何試卷</span>
 
-          <button class="p-3 bg-green-500 text-white font-bold rounded-lg">前往挑選考科</button>
+          <button
+            class="p-3 bg-green-500 text-white font-bold rounded-lg"
+            @click="this.$router.push('/banks/')"
+          >前往挑選考科</button>
         </div>
         <ExpCard v-for="bank in datas.results" :key="bank.subject" v-bind="bank" />
       </div>
