@@ -9,7 +9,7 @@
 
           <button
             class="p-3 bg-green-500 text-white font-bold rounded-lg"
-            @click="this.$router.push('/banks/')"
+            @click="this.$router.push('/exam/?expId=5iKg6-DsaxJV-NJZjZ&title=初階外匯&subject=SF54ASS5F5GGAGDG&range=35,36,37&total=150&count=10')"
           >前往挑選考科</button>
         </div>
         <ExpCard v-for="bank in datas.results" :key="bank.subject" v-bind="bank" />
