@@ -2,7 +2,7 @@
   <div class="flex flex-col w-screen h-screen">
     <Header :title="'我的試卷庫'"></Header>
 
-    <div class="flex-1 w-full bg-gray-100 relative">
+    <div class="flex-1 w-full bg-gray-100 relative overflow-hidden">
       <div class="w-full h-full overflow-y-scroll space-y-3 p-3">
         <div v-if="!datas || datas.results.length===0" class="text-lg w-full h-full flex flex-col justify-center items-center space-y-5">
           <span class="text-gray-500">目前還沒有任何試卷</span>
