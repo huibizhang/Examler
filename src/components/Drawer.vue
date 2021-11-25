@@ -135,19 +135,15 @@ export default {
     const examinationPapers = JSON.parse(window.localStorage.getItem('examinationPapers'))
     const currentExpId = window.localStorage.getItem('currentExpId')
 
-    if(!currentExpId) {
-      this.$router.push("/")
-      return
-    }
+    if(currentExpId) {
+      if(examinationPapers && examinationPapers.length>0) {
+        
+        const examinationPaper = examinationPapers.filter(exp => {
+          return exp.expId === currentExpId
+        })
 
-    if(examinationPapers && examinationPapers.length>0) {
-      
-      const examinationPaper = examinationPapers.filter(exp => {
-        console.log(exp.expId)
-        return exp.expId === currentExpId
-      })
-
-      this.title = examinationPaper[0].title
+        this.title = examinationPaper[0].title
+      }
     }
   },
   watch: {

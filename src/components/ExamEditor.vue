@@ -3,7 +3,6 @@
     class="w-full h-full flex justify-center items-center absolute top-0 transition-all duration-500 p-3"
     :class="[
       opened? 'opacity-100': 'opacity-0 pointer-events-none'
-
     ]"
   >
     <div
@@ -16,7 +15,7 @@
     >
       <div class="w-full h-12 border-b flex-none relative flex items-center">
         <div class="w-full h-full flex justify-center items-center text-lg">
-          {{title}}
+          編輯試卷
         </div>
         <div
           class="absolute right-0 mr-1 w-10 h-10 flex justify-center items-center hover:bg-gray-100 rounded-lg text-gray-500"
@@ -33,7 +32,7 @@
           <div class="relative -top-full text-gray-500">試卷名稱</div>
           <input
             class="w-full h-8 border-b-2 focus:border-blue-600 outline-none transition-all text-lg"
-            v-model="expName"
+            v-model="title"
           />
         </div>
 
@@ -60,111 +59,76 @@
             </button>
           </div>
         </div>
-
-        <div class="pt-3 space-y-1">
-          <div class="relative -top-full text-gray-500">選題範圍</div>
-          <div class="border-2">
-            <label class="flex items-center border-t first:border-0 p-3" v-for="s in sessions" :key="subject+s.session">
-              <div class="text-lg flex items-center gap-3 flex-1">
-                <input
-                  type="checkbox"
-                  :value="s.session"
-                  v-model="selectedSessions"
-                  class="appearance-none bg-check border-2 box-content checked:bg-green-400 checked:border-green-400 w-6 h-6 rounded-full transition-all"
-                >
-                第 {{s.session}} 屆
-              </div>
-              <div class="px-3 text-gray-500">{{s.count}} 題</div>
-            </label>
-          </div>
-        </div>
       </div>
 
-      <div class="flex-none border-t flex p-2 gap-2">
-        <div class="px-3 py-2 flex-1 text-lg text-gray-500">
-          共 {{totalCount()}} 題
-        </div>
-        <div class="flex-none">
-          <button
-            class="px-5 py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg disabled:bg-gray-500 transition-all"
-            :disabled="expName===''||count<5||selectedSessions.length===0"
-            @click="generate()"
-          >
-            建立試卷
-          </button>
-        </div>
+      <div class="flex-none border-t flex p-2 gap-2 justify-between">
+        <button
+          class="px-5 py-3 bg-red-600 hover:bg-red-500 text-white font-bold rounded-lg disabled:bg-gray-500 transition-all"
+          @click="del()"
+        >
+          刪除試卷
+        </button>
+
+        <button
+          class="px-5 py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg disabled:bg-gray-500 transition-all"
+          :disabled="title===''||count<5"
+          @click="save()"
+        >
+          儲存
+        </button>
       </div>
     </div>
   </div>
 </template>
 
-<script>
+<script>import { e } from "../../dist/assets/vendor.96082a5f"
+
 export default {
-  props:["open","subject","title","sessions"],
+  props:["open","expId","title","count"],
   data() {
     return {
       opened: false,
-      expName: "",
-      selectedSessions: [],
-      count: 10,
     }
   },
   mounted() {
     this.opened = this.open
-
-    this.expName = this.title
   },
   watch: {
     open(newVal, oldVal) {
       this.opened = newVal
     },
-    title(newVal, oldVal) {
-      this.expName = newVal
-    }
   },
   methods: {
     closing() {
       this.opened = false
-
-      this.expName = ""
-      this.selectedSessions = []
-
       this.$emit("closing")
     },
-    totalCount () {
-      if(!this.sessions) return 0
+    save () {
+      const examinationPapers = JSON.parse(window.localStorage.getItem('examinationPapers'))
 
-      return this.sessions.map(s => {
-        return this.selectedSessions.includes(s.session)? parseInt(s.count): 0
-      }).reduce((a,b) => a+b)
-    },
-    generate () {
+      if(examinationPapers && examinationPapers.length>0) {
+        examinationPapers.forEach(e => {
+          if(e.expId===this.expId){
+            e.title = this.title
+            e.count = this.count
+          }
+        });
 
-      const query = [
-        `expId=${this.expIdGenerator()}`,
-        `title=${this.expName}`,
-        `subject=${this.subject}`,
-        `range=${this.selectedSessions.join(",")}`,
-        `total=${this.totalCount()}`,
-        `count=${this.count}`,
-      ]
-
-      console.log(query)
-
-      this.$router.push(`/exam/?${query.join("&")}`)
-    },
-
-    expIdGenerator () {
-      return `${this.hashGenerator(5)}-${this.hashGenerator(6)}-${this.hashGenerator(5)}`
-    },
-    hashGenerator (digits) {
-      const keys = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
-      var result = ""
-
-      for(let i=0;i<digits;i++){
-        result += keys.charAt(Math.random()*keys.length)
+        window.localStorage.setItem('examinationPapers',JSON.stringify(examinationPapers))
+        this.$router.go()
       }
-      return result
+    },
+    del () {
+      const examinationPapers = JSON.parse(window.localStorage.getItem('examinationPapers'))
+
+      if(examinationPapers && examinationPapers.length>0) {
+        const renew = examinationPapers.filter(e => {
+          return e.expId!==this.expId
+        })
+
+        window.localStorage.setItem('examinationPapers',JSON.stringify(renew))
+        this.$router.go()
+      }
     }
   }
 }

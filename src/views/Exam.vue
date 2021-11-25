@@ -196,7 +196,7 @@ export default {
           title: this.$route.query.title,
           subject: this.$route.query.subject,
           range: this.$route.query.range.split(','),
-          total: 150,
+          total: this.$route.query.total,
           count: this.$route.query.count,
         }
         console.log(exp)

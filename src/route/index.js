@@ -36,6 +36,11 @@ const routes = [
     name: "Banks",
     component: () => import("../views/Banks.vue"),
   },
+  {
+    path: "/history-review/",
+    name: "HistoryReview",
+    component: () => import("../views/HistoryReview.vue"),
+  },
 ];
 
 export default createRouter({

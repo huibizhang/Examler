@@ -1,5 +1,8 @@
 <template>
   <Header :title="'設定'"></Header>
+  <div class="p-10 text-lg flex justify-center">
+    目前尚未開放
+  </div>
 </template>
 
 <script>
