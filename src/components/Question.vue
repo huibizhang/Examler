@@ -3,7 +3,7 @@
   <div
     v-show="onShowMistake ? userAns!==ans : true"
     :id="`no${no}`"
-    class="p-2 rounded-lg overflow-hidden"
+    class="p-2 rounded-lg overflow-hidden w-full max-w-full md:max-w-xl lg:max-w-2xl inset-0 mx-auto transition-all"
     :class="[mode==='exam-finished' && userAns!==ans? 'bg-red-200': 'bg-white']"
   >
     <div>{{mode==='review'? serial: examSerial}}. (

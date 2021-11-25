@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full shadow-md bg-white hover:bg-gray-50 hover:ring-2 group rounded-lg overflow-hidden flex flex-col transition-all select-none"
+    class="w-full shadow-md bg-white hover:bg-gray-50 hover:ring-2 group rounded-lg overflow-hidden flex flex-col transition-all select-none max-w-lg inset-0 mx-auto"
     :class="[
       (score>=80) && 'ring-green-400',
       (score>=60 && score<80) && 'ring-yellow-400',

@@ -14,7 +14,7 @@
     ></div>
 
     <div
-      class="bg-white h-full w-2/3 absolute top-0 transition-all duration-500"
+      class="bg-white h-full w-2/3 md:max-w-xs absolute top-0 transition-all duration-500"
       :class="[
         opened ? 'translate-x-0 shadow-xl': '-translate-x-full'
       ]"

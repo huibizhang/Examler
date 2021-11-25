@@ -2,12 +2,12 @@
   <div
     class="w-full h-full flex justify-center items-center relative -top-full transition-all duration-500"
     :class="[
-      opened? 'opacity-100': 'opacity-0 pointer-events-none'
+      opened? 'opacity-100 backdrop-blur-sm': 'opacity-0 pointer-events-none'
 
     ]"
   >
     <div
-      class="absolute w-full h-full bg-black/50 backdrop-blur-sm"
+      class="absolute w-full h-full bg-black/50"
     ></div>
 
     <div

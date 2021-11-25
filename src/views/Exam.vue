@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col w-full h-screen">
-    <Header :title="title" @rightIconClicked="mode==='exam-finished'? ($router.go()): (examFinished())">
+    <Header :title="title" @rightIconClicked="mode==='exam-finished'? ($router.go()): (examFinished())" :rightButtonText="mode==='exam-finished'?'重做':'交卷'">
       <svg v-if="mode!=='exam-finished'" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
       </svg>
@@ -13,7 +13,7 @@
     <div class="w-full flex-1 overflow-hidden">
       <!-- {{ datas }} -->
       <div id="lister" class="w-full h-full overflow-y-scroll p-2 bg-gray-200 space-y-2" style="overscroll-behavior:contain;">
-        <div v-if="mode==='exam-finished'" class="w-full mt-3 mb-3 text-center" ref="score">
+        <div v-if="mode==='exam-finished'" class="w-full mt-3 mb-3 text-center max-w-lg inset-0 mx-auto" ref="score">
           <div class="bg-white inline-block p-3 rounded-lg text-center space-y-2 font-bold inset-0 mx-auto shadow-lg">
             <div>作答分數</div>
             <div

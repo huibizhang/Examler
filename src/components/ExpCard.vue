@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full shadow-md bg-white hover:bg-gray-50 hover:ring-2 ring-yellow-400 group rounded-lg overflow-hidden flex flex-col transition-all select-none">
+  <div class="w-full shadow-md bg-white hover:bg-gray-50 hover:ring-2 ring-yellow-400 group rounded-lg overflow-hidden flex flex-col transition-all select-none max-w-lg inset-0 mx-auto">
     <div class="flex flex-none items-center">
       <div class="w-20 h-20 p-5 bg-yellow-100 flex-none group-hover:bg-yellow-200 transition-all">
         <img class="w-full h-full" src="../assets/document.png" />
