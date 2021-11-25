@@ -61,10 +61,16 @@ export default {
     "mode",
     "examSerial",
     "onShowMistake",
+    "inputUserAns",
   ],
   data () {
     return {
       userAns: '',
+    }
+  },
+  mounted () {
+    if (this.inputUserAns) {
+      this.userAns = this.inputUserAns
     }
   },
   methods: {

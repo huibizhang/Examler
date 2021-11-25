@@ -16,7 +16,16 @@
         <div v-if="mode==='exam-finished'" class="w-full mt-3 mb-3 text-center" ref="score">
           <div class="bg-white inline-block p-3 rounded-lg text-center space-y-2 font-bold inset-0 mx-auto shadow-lg">
             <div>作答分數</div>
-            <div class="text-5xl" :class="score>=60? 'text-green-600': 'text-[red]'">{{score}} 分</div>
+            <div
+              class="text-5xl"
+              :class="[
+                (score>=80) && 'text-green-600',
+                (score>=60 && score<80 ) && 'text-yellow-600',
+                (score<60) && 'text-[red]',
+              ]"
+            >
+              {{score}} 分
+            </div>
           </div>
           <div class="w-full flex justify-between mt-5">
             <div
