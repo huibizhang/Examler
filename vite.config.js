@@ -12,6 +12,7 @@ export default defineConfig({
       manifest: {
         name: '考試了 Examler',
         short_name: 'Examler',
+        start_url: "./?utm_source=web_app_manifest"
         description: '題庫練習及考試平台',
         theme_color: '#ffffff',
         icons: [
