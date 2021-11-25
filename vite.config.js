@@ -12,8 +12,7 @@ export default defineConfig({
       manifest: {
         name: '考試了 Examler',
         short_name: 'Examler',
-        start_url: "https://examler.vercel.app/",
-        display: "standalone",
+        start_url: "index.html",
         description: '題庫練習及考試平台',
         theme_color: '#ffffff',
         icons: [
@@ -35,11 +34,6 @@ export default defineConfig({
           }
         ]
       },
-      url_handlers: [
-        {
-          "origin": "http://192.168.0.48:5000/"
-        },
-      ]
     })
   ]
 })
