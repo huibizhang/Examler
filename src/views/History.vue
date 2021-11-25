@@ -41,6 +41,9 @@ export default {
 
     if(histories){
       if(histories[currentExpId]) {
+
+        histories[currentExpId].sort((a,b) => b.timestamp - a.timestamp)
+
         this.datas = {
           results: histories[currentExpId]
         }
