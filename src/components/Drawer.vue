@@ -14,17 +14,17 @@
     ></div>
 
     <div
-      class="bg-white h-full w-2/3 md:max-w-xs absolute top-0 transition-all duration-500"
+      class="bg-white h-full w-2/3 md:max-w-xs absolute top-0 transition-all duration-500 flex flex-col"
       :class="[
         opened ? 'translate-x-0 shadow-xl': '-translate-x-full'
       ]"
     >
       <!-- LOGO -->
-      <div class="w-full text-3xl text-center py-4">
+      <div class="w-full text-3xl text-center py-4 flex-none">
         <span class="text-cyan-500">E</span>x<span class="text-red-500">a</span>mler
       </div>
 
-      <div class="w-full flex flex-col items-center space-y-1">
+      <div class="w-full flex flex-col items-center space-y-1 flex-none ">
         <span class="text-xs text-gray-400">目前考卷</span>
         <span class="font-bold text-gray-600">{{title}}</span>
       </div>
@@ -40,7 +40,7 @@
       </div>
 
       <!-- 選單列表 -->
-      <div class="p-3 space-y-2">
+      <div class="p-3 space-y-2 overflow-x-hidden flex-1">
         <template
           v-for="link in links"
           :key="link.name"
