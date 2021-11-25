@@ -34,6 +34,7 @@ export default defineConfig({
         //   }
         // ]
 
+        "strategies": "injectManifest",
         "background_color": "#ffffff",
         "description": "題庫練習及考試平台",
         "dir": "ltr",
