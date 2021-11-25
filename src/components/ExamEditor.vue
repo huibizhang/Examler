@@ -81,8 +81,7 @@
   </div>
 </template>
 
-<script>import { e } from "../../dist/assets/vendor.96082a5f"
-
+<script>
 export default {
   props:["open","expId","title","count"],
   data() {
