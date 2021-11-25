@@ -6,9 +6,9 @@
 
     <!-- Overlay -->
     <div
-      class="w-full h-full bg-black/30 backdrop-blur-sm transition-all duration-500"
+      class="w-full h-full bg-black backdrop-blur-sm transition-all duration-500"
       :class="[
-        opened ? 'opacity-100': 'opacity-0'
+        opened ? 'opacity-30': 'opacity-0'
       ]"
       v-on:click="closing()"
     ></div>
