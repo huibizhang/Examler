@@ -17,7 +17,7 @@
           :id="bank.expId"
           :key="bank.expId"
           v-bind="bank"
-          @editing="edit(bank.expId)"
+          @editing="edit($event)"
         />
       </div>
       <ExamEditor
@@ -45,6 +45,7 @@ export default {
       datas: "",
       openEditor: false,
       currentExpId: "",
+      selectedExam: {},
     }
   },
   mounted () {
@@ -65,25 +66,19 @@ export default {
     console.log(this.datas)
   },
   methods: {
-    edit (expId) {
-      this.currentExpId = expId
-      this.openEditor = true
-    },
-  },
-  computed: {
-    selectedExam () {
+    edit (e) {
+      this.currentExpId = e
+
       if(!this.datas.results || !this.currentExpId) {
-        return {
-          expId: "",
-          title: "",
-          count: 0,
-        }
+        return
       }
 
-      return this.datas.results.filter(r => {
-        return r.expId = this.currentExpId
+      this.selectedExam =  this.datas.results.filter(r => {
+        return r.expId === this.currentExpId
       })[0]
-    }
+
+      this.openEditor = true
+    },
   },
   components: {
     Header,
