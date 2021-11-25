@@ -6,7 +6,7 @@
 
     <!-- Overlay -->
     <div
-      class="w-full h-full bg-black/30 backdrop-filter backdrop-blur-sm transition-all duration-500"
+      class="w-full h-full bg-black/30 backdrop-blur-sm transition-all duration-500"
       :class="[
         opened ? 'opacity-100': 'opacity-0'
       ]"
