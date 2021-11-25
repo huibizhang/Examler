@@ -7,7 +7,6 @@ export default defineConfig({
   plugins: [
     vue(),
     VitePWA({
-      "strategies": "injectManifest",
       includeAssets: ['favicon.png', 'favicon.ico', 'robots.txt', 'apple-touch-icon.png'],  
       manifest: {
         // name: '考試了 Examler',
