@@ -12,5 +12,4 @@ const updateSW = registerSW({
 
 createApp(App)
   .use(router)
-  .use(updateSW)
   .mount('#app')
