@@ -40,7 +40,7 @@
           <div class="relative -top-full text-gray-500">題數</div>
           <div class="flex w-full justify-center items-center gap-2">
             <button
-              class="text-3xl w-10 h-10 bg-blue-400 text-white rounded-full font-bold"
+              class="text-3xl w-10 h-10 flex-none bg-blue-400 text-white rounded-full font-bold"
               @click="(count>5) && (count--)"
             >
               -
@@ -52,7 +52,7 @@
               min="5"
             />
             <button
-              class="text-3xl w-10 h-10 bg-blue-400 text-white rounded-full font-bold"
+              class="text-3xl w-10 h-10 flex-none bg-blue-400 text-white rounded-full font-bold"
               @click="count++"
             >
               +
