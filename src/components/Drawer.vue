@@ -14,24 +14,24 @@
     ></div>
 
     <div
-      class="bg-white h-full w-2/3 md:max-w-xs absolute top-0 transition-all duration-500 flex flex-col"
+      class="bg-white dark:bg-gray-800 h-full w-2/3 md:max-w-xs absolute top-0 transition-all duration-500 flex flex-col"
       :class="[
         opened ? 'translate-x-0 shadow-xl': '-translate-x-full'
       ]"
     >
       <!-- LOGO -->
-      <div class="w-full text-3xl text-center py-4 flex-none">
+      <div class="w-full text-3xl text-center py-4 flex-none dark:text-gray-400 transition-all">
         <span class="text-cyan-500">E</span>x<span class="text-red-500">a</span>mler
       </div>
 
       <div class="w-full flex flex-col items-center space-y-1 flex-none ">
-        <span class="text-xs text-gray-400">目前考卷</span>
-        <span class="font-bold text-gray-600">{{title}}</span>
+        <span class="text-xs text-gray-400 dark:text-gray-500 transition-all">目前考卷</span>
+        <span class="font-bold text-gray-600 dark:text-gray-400 transition-all">{{title}}</span>
       </div>
 
       <!-- 關閉 drawer 的叉叉 -->
       <div
-        class="absolute top-0 right-0 m-2 p-2 hover:bg-black/5 rounded-full cursor-pointer"
+        class="absolute top-0 right-0 m-2 p-2 hover:bg-black/5 rounded-full cursor-pointer dark:text-gray-300 transition-all"
         v-on:click="closing()"
       >
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -47,13 +47,13 @@
         >
           <!-- 水平線元件 -->
           <div v-if="link.link ==='hr'" class="py-4">
-            <div class="w-full h-[1px] bg-gray-200"></div> 
+            <div class="w-full h-[1px] bg-gray-200 dark:bg-gray-700 transition-all"></div> 
           </div>
 
           <!-- 連結元件 -->
           <router-link
             v-else
-            class="flex gap-3 w-full p-3 border border-blue-800 rounded-md hover:text-white hover:bg-blue-800 transition-all"
+            class="flex gap-3 w-full p-3 border border-blue-800 dark:border-blue-700 dark:bg-blue-900/30 dark:text-gray-300 rounded-md hover:text-white hover:bg-blue-800 transition-all"
             :to="link.link"
             :class="$route.path===link.link && 'bg-blue-800 text-white'"
           >
