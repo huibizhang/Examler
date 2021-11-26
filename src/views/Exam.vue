@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col w-full h-screen">
-    <Header :title="title" @rightIconClicked="mode==='exam-finished'? ($router.go(1)): (examFinished())" :rightButtonText="mode==='exam-finished'?'重做':'交卷'">
+    <Header :title="title" @rightIconClicked="mode==='exam-finished'? ($router.go(0)): (examFinished())" :rightButtonText="mode==='exam-finished'?'重做':'交卷'">
       <svg v-if="mode!=='exam-finished'" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
       </svg>
