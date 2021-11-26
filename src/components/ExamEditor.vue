@@ -114,7 +114,7 @@ export default {
         });
 
         window.localStorage.setItem('examinationPapers',JSON.stringify(examinationPapers))
-        this.$router.go()
+        window.location.reload()
       }
     },
     del () {
@@ -126,7 +126,7 @@ export default {
         })
 
         window.localStorage.setItem('examinationPapers',JSON.stringify(renew))
-        this.$router.go()
+        window.location.reload()
       }
     }
   }
