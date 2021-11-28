@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col w-screen h-screen">
-    <Header :title="'設定'"></Header>
+    <Header :title="'設定'" :doSystemPreferDetect="doSystemPreferDetect"></Header>
 
     <div class="flex-1 w-full bg-gray-100 dark:bg-gray-900 transition-all relative overflow-hidden">
       <div class="w-full h-full overflow-y-scroll space-y-3 p-3">
@@ -10,7 +10,13 @@
             <div class="flex justify-between items-center text-lg w-full px-3 dark:text-gray-300 transition-all">
               <span>隨系統切換深色模式</span>
               <label class="block w-16 h-8 inset-0 my-2 relative">
-                <input type="checkbox" class="peer appearance-none absolute z-10 w-1/2 h-full bg-white/70 dark:bg-gray-400 rounded-full checked:translate-x-full dark:checked:bg-gray-200 transition-all scale-75 cursor-pointer outline-none" />
+                <input
+                  type="checkbox"
+                  class="peer appearance-none absolute z-10 w-1/2 h-full bg-white/70 dark:bg-gray-400 rounded-full checked:translate-x-full dark:checked:bg-gray-200 transition-all scale-75 cursor-pointer outline-none"
+                  
+                  v-model="followSystemSwitchDarkMode"
+                  @change="saveSetting()"
+                />
                 <div class="w-full h-full bg-gray-300 dark:bg-gray-600 peer-checked:bg-green-400 absolute top-0 transition-all duration-500 -mt-1 -ml-1 border-4 dark:border-gray-500 box-content peer-checked:border-green-200 rounded-full overflow-hidden"></div>
               </label>
             </div>
@@ -50,7 +56,34 @@ import Header from "../components/Header.vue";
 import HelloWorld from "../components/HelloWorld.vue";
 
 export default {
-  name: "My Bank",
+  name: "Setting",
+  data() {
+    return {
+      followSystemSwitchDarkMode: true,
+      doSystemPreferDetect: false,
+    }
+  },
+  mounted() {
+    const setting = JSON.parse(window.localStorage.getItem("setting"))
+
+    if(setting){
+      this.followSystemSwitchDarkMode = setting['followSystemSwitchDarkMode']
+    } else {
+      this.followSystemSwitchDarkMode = true
+    }
+  },
+  methods: {
+    saveSetting() {
+      const setting = JSON.parse(window.localStorage.getItem("setting"))
+
+      if(setting){
+        setting['followSystemSwitchDarkMode'] = this.followSystemSwitchDarkMode
+        window.localStorage.setItem("setting",JSON.stringify(setting))
+
+        this.doSystemPreferDetect = this.followSystemSwitchDarkMode
+      }
+    }
+  },
   components: {
     HelloWorld,
     Header,

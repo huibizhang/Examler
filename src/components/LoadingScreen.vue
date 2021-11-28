@@ -11,7 +11,7 @@
     ></div>
 
     <div
-      class="w-60 h-60 bg-white z-10 shadow-lg rounded-xl font-bold flex flex-col justify-center items-center gap-7"
+      class="w-60 h-60 bg-white dark:bg-gray-600 dark:text-gray-300 z-10 shadow-lg rounded-xl font-bold flex flex-col justify-center items-center gap-7"
     >
       <slot>題目努力讀取中 ...</slot>
       <svg class="animate-spin h-10 w-10 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

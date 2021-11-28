@@ -11,14 +11,14 @@
     ></div>
 
     <div
-      class="w-full md:max-w-md min-h-[50%] max-h-full bg-white z-10 shadow-lg rounded-xl font-bold flex flex-col"
+      class="w-full md:max-w-md min-h-[50%] max-h-full bg-white dark:bg-gray-700 dark:text-gray-200 z-10 shadow-lg rounded-xl font-bold flex flex-col transition-all"
     >
       <div class="w-full h-12 border-b flex-none relative flex items-center">
         <div class="w-full h-full flex justify-center items-center text-lg">
           編輯試卷
         </div>
         <div
-          class="absolute right-0 mr-1 w-10 h-10 flex justify-center items-center hover:bg-gray-100 rounded-lg text-gray-500"
+          class="absolute right-0 mr-1 w-10 h-10 flex justify-center items-center hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg text-gray-500 dark:text-gray-400"
           @click="closing()"
         >
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -29,30 +29,30 @@
 
       <div class="flex-1 overflow-y-scroll space-y-3 py-2 px-5 w-full">
         <div class="pt-3 space-y-1">
-          <div class="relative -top-full text-gray-500">試卷名稱</div>
+          <div class="relative -top-full text-gray-500 dark:text-gray-400 transition-all">試卷名稱</div>
           <input
-            class="w-full h-8 border-b-2 focus:border-blue-600 outline-none transition-all text-lg"
+            class="w-full h-8 border-b-2 dark:text-gray-200 dark:bg-gray-700 focus:border-blue-600 dark:focus:border-blue-500 outline-none transition-all text-lg"
             v-model="title"
           />
         </div>
 
         <div class="pt-3 space-y-1 w-full">
-          <div class="text-gray-500">題數</div>
+          <div class="text-gray-500 dark:text-gray-400 transition-all">題數</div>
           <div class="flex w-full justify-center items-center gap-2 px-3">
             <button
-              class="text-3xl w-10 h-10 flex-none bg-blue-400 text-white rounded-full font-bold"
+              class="text-3xl w-10 h-10 flex-none bg-blue-400 dark:bg-blue-500 text-white dark:text-gray-300 rounded-full font-bold"
               @click="(count>5) && (count--)"
             >
               -
             </button>
             <input
-              class="text-center p-2 border-2 w-32 focus:border-blue-600 outline-none transition-all text-lg"
+              class="text-center p-2 border-2 w-32 dark:bg-gray-700 dark:border-gray-500 dark:focus:border-blue-500 focus:border-blue-600 outline-none transition-all text-lg"
               v-model.number="count"
               type="number"
               min="5"
             />
             <button
-              class="text-3xl w-10 h-10 flex-none bg-blue-400 text-white rounded-full font-bold"
+              class="text-3xl w-10 h-10 flex-none bg-blue-400 dark:bg-blue-500 text-white dark:text-gray-300 rounded-full font-bold"
               @click="count++"
             >
               +
@@ -63,14 +63,14 @@
 
       <div class="flex-none border-t flex p-2 gap-2 justify-between">
         <button
-          class="px-5 py-3 bg-red-600 hover:bg-red-500 text-white font-bold rounded-lg disabled:bg-gray-500 transition-all"
+          class="px-5 py-3 bg-red-600 hover:bg-red-500 dark:text-gray-200 dark:bg-red-700 dark:hover:bg-red-600 text-white font-bold rounded-lg disabled:bg-gray-500 transition-all"
           @click="del()"
         >
           刪除試卷
         </button>
 
         <button
-          class="px-5 py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg disabled:bg-gray-500 transition-all"
+          class="px-5 py-3 bg-blue-600 hover:bg-blue-500 text-white dark:text-gray-200 dark:bg-blue-700 dark:hover:bg-blue-600 font-bold rounded-lg disabled:bg-gray-500 transition-all"
           :disabled="title===''||count<5"
           @click="save()"
         >

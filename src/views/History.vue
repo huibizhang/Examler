@@ -2,13 +2,13 @@
   <div class="flex flex-col w-screen h-screen">
     <Header :title="'歷史紀錄'"></Header>
     
-    <div class="flex-1 w-full bg-gray-100">
+    <div class="flex-1 w-full bg-gray-100 dark:bg-gray-900 transition-all">
       <div class="w-full h-full overflow-y-scroll space-y-3 p-3">
         <div v-if="!datas || !datas.results" class="text-lg w-full h-full flex flex-col justify-center items-center space-y-5">
-          <span class="text-gray-500">你還沒做過這張考卷</span>
+          <span class="text-gray-500 dark:text-gray-400 transition-all">你還沒做過這張考卷</span>
 
           <button
-            class="px-5 py-3 bg-green-500 text-white font-bold rounded-lg"
+            class="px-5 py-3 bg-green-500 dark:bg-green-600 text-white dark:text-gray-200 font-bold rounded-lg transition-all"
             @click="this.$router.push('/exam/')"
           >做測驗</button>
         </div>

@@ -12,16 +12,18 @@
 
     <div class="w-full flex-1 overflow-hidden">
       <!-- {{ datas }} -->
-      <div id="lister" class="w-full h-full overflow-y-scroll p-2 bg-gray-200 space-y-2" style="overscroll-behavior:contain;">
+      <div id="lister" class="w-full h-full overflow-y-scroll p-2 bg-gray-200 dark:bg-gray-900 transition-all space-y-2" style="overscroll-behavior:contain;">
+        
+        <!-- 作答完畢區 -->
         <div v-if="mode==='exam-finished'" class="w-full mt-3 mb-3 text-center max-w-lg inset-0 mx-auto" ref="score">
-          <div class="bg-white inline-block p-3 rounded-lg text-center space-y-2 font-bold inset-0 mx-auto shadow-lg">
+          <div class="bg-white dark:bg-gray-700 dark:text-gray-400 transition-all inline-block p-3 rounded-lg text-center space-y-2 font-bold inset-0 mx-auto shadow-lg">
             <div>作答分數</div>
             <div
               class="text-5xl"
               :class="[
-                (score>=80) && 'text-green-600',
-                (score>=60 && score<80 ) && 'text-yellow-600',
-                (score<60) && 'text-[red]',
+                (history.score>=80) && 'text-green-600 dark:text-green-500',
+                (history.score>=60 && history.score<80 ) && 'text-yellow-600 dark:text-yellow-500',
+                (history.score<60) && 'text-[red] dark:text-red-500',
               ]"
             >
               {{score}} 分
@@ -29,7 +31,7 @@
           </div>
           <div class="w-full flex justify-between mt-5">
             <div
-              class="flex flex-none bg-white p-2 items-center gap-2 rounded-lg cursor-pointer"
+              class="flex flex-none bg-white dark:bg-gray-700 dark:text-gray-300 transition-all p-2 items-center gap-2 rounded-lg cursor-pointer"
               @click="$router.push('/history/')"
             >
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-500" viewBox="0 0 20 20" fill="currentColor">
@@ -38,10 +40,10 @@
               <span>歷史作答紀錄</span>
             </div>
 
-            <label class="flex flex-none bg-white p-2 items-center gap-2 rounded-lg cursor-pointer">
+            <label class="flex flex-none bg-white dark:bg-gray-700 dark:text-gray-300 transition-all p-2 items-center gap-2 rounded-lg cursor-pointer">
               <input
                 type="checkbox"
-                class="appearance-none bg-check border-2 border-gray-200 bg-white checked:bg-blue-600 checked:border-blue-600 block w-5 h-5 rounded-full transition-all"
+                class="appearance-none bg-check border-2 border-gray-200 bg-white dark:bg-gray-500 dark:bg-check-dark dark:border-gray-400 checked:bg-blue-600 checked:border-blue-600 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:checked:bg-check block w-5 h-5 rounded-full transition-all"
                 v-model="onShowMistake"
               />
               <span>只顯示寫錯題目</span>
@@ -63,7 +65,7 @@
         <div class="w-full py-5">
           <div
             v-if="mode!=='exam-finished'"
-            class="w-44 p-3 bg-blue-700 hover:bg-blue-500 flex gap-5 justify-center items-center text-white font-bold rounded-lg inset-0 mx-auto transition-all cursor-pointer text-lg"
+            class="w-44 p-3 bg-blue-700 hover:bg-blue-500 flex gap-5 justify-center items-center text-white dark:text-gray-300 font-bold rounded-lg inset-0 mx-auto transition-all cursor-pointer text-lg"
             @click="examFinished()"
           >
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -74,7 +76,7 @@
 
           <div
             v-if="mode==='exam-finished'"
-            class="w-44 p-3 bg-blue-700 hover:bg-blue-500 flex gap-5 justify-center items-center text-white font-bold rounded-lg inset-0 mx-auto transition-all cursor-pointer text-lg"
+            class="w-44 p-3 bg-blue-700 hover:bg-blue-500 flex gap-5 justify-center items-center text-white dark:text-gray-300 font-bold rounded-lg inset-0 mx-auto transition-all cursor-pointer text-lg"
             @click="reloadPage()"
           >
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -2,13 +2,13 @@
   <div class="flex flex-col w-screen h-screen">
     <Header :title="'我的試卷庫'"></Header>
 
-    <div class="flex-1 w-full bg-gray-100 relative overflow-hidden">
+    <div class="flex-1 w-full bg-gray-100 dark:bg-gray-900 transition-all relative overflow-hidden">
       <div class="w-full h-full overflow-y-scroll space-y-3 p-3">
         <div v-if="!datas || datas.results.length===0" class="text-lg w-full h-full flex flex-col justify-center items-center space-y-5">
-          <span class="text-gray-500">目前還沒有任何試卷</span>
+          <span class="text-gray-500 dark:text-gray-400 transition-all">目前還沒有任何試卷</span>
 
           <button
-            class="px-5 py-3 bg-green-500 text-white font-bold rounded-lg"
+            class="px-5 py-3 bg-green-500 dark:bg-green-600 text-white dark:text-gray-200 font-bold rounded-lg"
             @click="this.$router.push('/banks/')"
           >前往挑選考科</button>
         </div>

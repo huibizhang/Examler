@@ -8,7 +8,7 @@
 
     <div class="w-full flex-1 overflow-hidden">
       <!-- {{ datas }} -->
-      <div class="w-full h-full overflow-y-scroll p-2 bg-gray-200 space-y-2" style="overscroll-behavior:contain;">
+      <div class="w-full h-full overflow-y-scroll p-2 bg-gray-200 dark:bg-gray-900 transition-all space-y-2" style="overscroll-behavior:contain;">
         <Question
            v-for="q in datas.results"
            :key="q.no"

@@ -4,16 +4,16 @@
     v-show="onShowMistake ? userAns!==ans : true"
     :id="`no${no}`"
     class="p-2 rounded-lg overflow-hidden w-full max-w-full md:max-w-xl lg:max-w-2xl inset-0 mx-auto transition-all"
-    :class="[mode==='exam-finished' && userAns!==ans? 'bg-red-200': 'bg-white']"
+    :class="[mode==='exam-finished' && userAns!==ans? 'bg-red-200 dark:bg-red-900 dark:text-gray-300': 'bg-white dark:bg-gray-700 dark:text-gray-300']"
   >
     <div>{{mode==='review'? serial: examSerial}}. (
-      <span v-if="mode==='review'" class="text-blue-600">{{ans}}</span>
-      <span v-else-if="mode==='exam-finished'" :class="[userAns===ans? 'text-green-600': 'text-[red]']">{{userAns}}</span>
-      <span v-else class="text-blue-600">{{ userAns? userAns: '&nbsp;' }}</span>
+      <span v-if="mode==='review'" class="text-blue-600 dark:text-blue-400 transition-all">{{ans}}</span>
+      <span v-else-if="mode==='exam-finished'" :class="[userAns===ans? 'text-green-600 dark:text-green-400': 'text-[red] dark:text-red-300']">{{userAns}}</span>
+      <span v-else class="text-blue-600 dark:text-blue-400 transition-all">{{ userAns? userAns: '&nbsp;' }}</span>
     )
     <span
       v-if="mode==='exam-finished'"
-      class="text-blue-600"
+      class="text-blue-600 dark:text-blue-400 transition-all"
     >
       &nbsp;正確：{{ans}}
     </span>
@@ -25,7 +25,7 @@
     <!-- 出自於 -->
     <div
       v-if="mode==='review' || mode==='exam-finished'"
-      class="text-blue-600 w-full text-right text-sm"
+      class="text-blue-600 dark:text-blue-400 transition-all w-full text-right text-sm"
     >
       {{ from(no,'屆') }}
     </div>

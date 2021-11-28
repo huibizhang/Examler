@@ -2,7 +2,7 @@
   <div class="flex flex-col w-screen h-screen">
     <Header :title="'瀏覽所有考科'"></Header>
 
-    <div class="flex-1 w-full bg-gray-100 relative overflow-hidden">
+    <div class="flex-1 w-full bg-gray-100 dark:bg-gray-900 relative overflow-hidden">
       <div class="w-full h-full overflow-y-scroll space-y-3 p-3">
         <BankCard
           v-for="bank in datas.results"

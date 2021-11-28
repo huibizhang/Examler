@@ -1,16 +1,16 @@
 <template>
-  <div class="w-full shadow-md bg-white hover:bg-gray-50 hover:ring-2 ring-yellow-400 group rounded-lg overflow-hidden flex flex-col transition-all select-none max-w-lg inset-0 mx-auto">
+  <div class="w-full shadow-md bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 dark:text-gray-300 hover:ring-2 ring-yellow-400 dark:ring-yellow-600 group rounded-lg overflow-hidden flex flex-col transition-all select-none max-w-lg inset-0 mx-auto">
     <div class="flex flex-none items-center">
-      <div class="w-20 h-20 p-5 bg-yellow-100 flex-none group-hover:bg-yellow-200 transition-all">
+      <div class="w-20 h-20 p-5 bg-yellow-100 dark:bg-yellow-500 flex-none group-hover:bg-yellow-200 dark:group-hover:bg-yellow-400 transition-all">
         <img class="w-full h-full" src="../assets/document.png" />
       </div>
       <div class="flex-1 flex flex-col justify-center p-3 font-bold text-lg">
         {{title}}
-        <span class="text-sm text-gray-400">{{total}} 題抽 {{count}} 題</span>
+        <span class="text-sm text-gray-400 dark:text-gray-400 transition-all">{{total}} 題抽 {{count}} 題</span>
       </div>
       <!-- 編輯試卷 -->
       <div
-        class="w-10 h-10 mr-1 flex justify-center items-center hover:bg-gray-200 rounded-full transition-all"
+        class="w-10 h-10 mr-1 flex justify-center items-center hover:bg-gray-200 dark:hover:bg-gray-600 rounded-full transition-all"
         @click="$emit('editing',expId)"
       >
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -19,7 +19,7 @@
       </div>
     </div>
     <!-- 操作功能 -->
-    <div class="grid grid-cols-3 place-items-center flex-none w-full py-3 border-t text-gray-600">
+    <div class="grid grid-cols-3 place-items-center flex-none w-full py-3 border-t text-gray-600 dark:text-gray-400">
       <div
         class="flex flex-col justify-center items-center gap-1.5 w-full hover:text-blue-600 transition-all"
         @click="route('/exam/')"

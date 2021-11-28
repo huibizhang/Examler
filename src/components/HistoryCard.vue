@@ -1,19 +1,19 @@
 <template>
   <div
-    class="w-full shadow-md bg-white hover:bg-gray-50 hover:ring-2 group rounded-lg overflow-hidden flex flex-col transition-all select-none max-w-lg inset-0 mx-auto"
+    class="w-full shadow-md bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 hover:ring-2 group rounded-lg overflow-hidden flex flex-col transition-all select-none max-w-lg inset-0 mx-auto"
     :class="[
       (score>=80) && 'ring-green-400',
-      (score>=60 && score<80) && 'ring-yellow-400',
-      (score<60) && 'ring-red-400',
+      (score>=60 && score<80) && 'ring-yellow-400 dark:ring-yellow-500',
+      (score<60) && 'ring-red-400 dark:ring-red-600',
     ]"
   >
     <div class="flex flex-none items-center">
       <div
         class="w-20 h-20 p-5 transition-all flex justify-center items-center text-3xl font-bold flex-none"
         :class="[
-          (score>=80) && 'bg-green-100 group-hover:bg-green-200 text-green-500',
-          (score>=60 && score<80) && 'bg-yellow-100 group-hover:bg-yellow-200 text-yellow-600',
-          (score<60) && 'bg-red-100 group-hover:bg-red-200 text-red-700',
+          (score>=80) && 'bg-green-100 group-hover:bg-green-200 text-green-500 dark:bg-green-800 dark:text-green-400 dark:group-hover:bg-green-700',
+          (score>=60 && score<80) && 'bg-yellow-100 group-hover:bg-yellow-200 text-yellow-600 dark:bg-yellow-700 dark:text-yellow-400 dark:group-hover:bg-yellow-600',
+          (score<60) && 'bg-red-100 group-hover:bg-red-200 text-red-700 dark:bg-red-900 dark:text-red-400 dark:group-hover:bg-red-800',
         ]"
       >
         <div class="flex items-end">
@@ -24,7 +24,7 @@
         <span class="text-sm text-gray-400">作答於 {{timeago(timestamp)}} </span>
       </div>
       <div
-        class="w-14 h-14 mr-3 flex flex-col justify-center items-center hover:bg-gray-200 transition-all text-gray-500 rounded-lg"
+        class="w-14 h-14 mr-3 flex flex-col justify-center items-center hover:bg-gray-200 transition-all text-gray-500 dark:text-gray-400 rounded-lg"
         @click="$router.push(`/history-review/?history=${timestamp}`)"
       >
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 flex-none" fill="none" viewBox="0 0 24 24" stroke="currentColor">
