@@ -21,9 +21,9 @@
             <div
               class="text-5xl"
               :class="[
-                (history.score>=80) && 'text-green-600 dark:text-green-500',
-                (history.score>=60 && history.score<80 ) && 'text-yellow-600 dark:text-yellow-500',
-                (history.score<60) && 'text-[red] dark:text-red-500',
+                (score>=80) && 'text-green-600 dark:text-green-500',
+                (score>=60 && score<80 ) && 'text-yellow-600 dark:text-yellow-500',
+                (score<60) && 'text-[red] dark:text-red-500',
               ]"
             >
               {{score}} 分
