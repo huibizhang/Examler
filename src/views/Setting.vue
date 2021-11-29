@@ -35,7 +35,10 @@
           <div class="text-xl font-bold p-3 pb-1 text-center">重設</div>
           <div class="py-3 px-5 text-center text-gray-400 text-sm">
             這個功能會清除整個應用程式的紀錄，並嘗試將設定還原到初始狀態，以確保應用程式運作正常。
-            <button class="bg-red-600 dark:bg-red-700 font-bold text-white dark:text-gray-200 text-lg w-full px-5 py-2 rounded-lg mt-4 transition-all">重設應用程式</button>
+            <button
+              class="bg-red-600 dark:bg-red-700 font-bold text-white dark:text-gray-200 text-lg w-full px-5 py-2 rounded-lg mt-4 transition-all"
+              @click="confirmOpen=true"  
+            >重設應用程式</button>
           </div>
         </div>
 
@@ -47,6 +50,14 @@
           </div>
         </div>
       </div>
+      <Confirm
+        :title="'警告'"
+        :open="confirmOpen"
+        @closing="confirmOpen=false"
+        @confirming="resetApp()"
+      >
+        此動作將會清除本應用程式中的所有製作過的考卷及考試紀錄。
+      </Confirm>
     </div>
   </div>
 </template>
@@ -54,6 +65,7 @@
 <script>
 import Header from "../components/Header.vue";
 import HelloWorld from "../components/HelloWorld.vue";
+import Confirm from "../components/Confirm.vue";
 
 export default {
   name: "Setting",
@@ -61,6 +73,7 @@ export default {
     return {
       followSystemSwitchDarkMode: true,
       doSystemPreferDetect: false,
+      confirmOpen: false,
     }
   },
   mounted() {
@@ -82,11 +95,17 @@ export default {
 
         this.doSystemPreferDetect = this.followSystemSwitchDarkMode
       }
+    },
+    resetApp() {
+      window.localStorage.clear()
+      alert("將返回應用程式主畫面")
+      this.$router.push("/")
     }
   },
   components: {
     HelloWorld,
     Header,
-  },
+    Confirm,
+},
 };
 </script>
