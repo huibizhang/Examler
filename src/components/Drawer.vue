@@ -24,7 +24,7 @@
         <span class="text-cyan-500">E</span>x<span class="text-red-500">a</span>mler
       </div>
 
-      <div class="w-full flex flex-col items-center space-y-1 flex-none ">
+      <div class="w-full flex flex-col items-center space-y-1 flex-none mb-2">
         <span class="text-xs text-gray-400 dark:text-gray-500 transition-all">目前考卷</span>
         <span class="font-bold text-gray-600 dark:text-gray-400 transition-all">{{title}}</span>
       </div>

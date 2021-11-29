@@ -2,7 +2,11 @@
   <Drawer :open="opened" @closing="drawerClosing()" />
 
   <div class="w-full h-14 bg-blue-800 flex-none">
-    <div class="w-full h-full flex text-2xl font-bold text-white dark:text-gray-300 transition-all justify-center items-center">{{ title }}</div>
+    <div class="w-2/3 h-full text-2xl font-bold text-white dark:text-gray-300 transition-all inset-0 mx-auto flex justify-center items-center">
+      <div class="w-full text-center truncate">
+        {{ title }}
+      </div>
+    </div>
     <div class="absolute top-0 w-full flex justify-between items-center p-2">
       <div
         class="w-10 h-10 md:w-24 md:gap-2 md:rounded-lg flex justify-center items-center text-white dark:text-gray-300 hover:bg-white/20 rounded-full"

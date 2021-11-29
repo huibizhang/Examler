@@ -1,11 +1,13 @@
 <template>
   <div class="w-full shadow-md bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 dark:text-gray-300 hover:ring-2 ring-yellow-400 dark:ring-yellow-600 group rounded-lg overflow-hidden flex flex-col transition-all select-none max-w-lg inset-0 mx-auto">
     <div class="flex flex-none items-center">
-      <div class="w-20 h-20 p-5 bg-yellow-100 dark:bg-yellow-500 flex-none group-hover:bg-yellow-200 dark:group-hover:bg-yellow-400 transition-all">
+      <div class="w-20 p-5 bg-yellow-100 dark:bg-yellow-500 flex-none group-hover:bg-yellow-200 dark:group-hover:bg-yellow-400 transition-all">
         <img class="w-full h-full" src="../assets/document.png" />
       </div>
-      <div class="flex-1 flex flex-col justify-center p-3 font-bold text-lg">
-        {{title}}
+      <div class="flex-1 flex flex-col justify-center p-3 font-bold text-lg overflow-hidden">
+        <div class="w-full truncate">
+          {{title}}
+        </div>
         <span class="text-sm text-gray-400 dark:text-gray-400 transition-all">{{total}} 題抽 {{count}} 題</span>
       </div>
       <!-- 編輯試卷 -->
