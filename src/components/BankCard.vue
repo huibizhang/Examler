@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full h-20 shadow-md bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 hover:ring-2 ring-red-400 dark:ring-red-600 group rounded-lg overflow-hidden flex transition-all  max-w-lg inset-0 mx-auto"
+    class="w-full h-20 shadow-md bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 hover:ring-2 ring-red-400 dark:ring-red-600 group rounded-lg overflow-hidden flex transition-all max-w-lg inset-0 mx-auto"
     @click="$emit('selected')"  
   >
     <div class="w-20 h-20 p-5 bg-red-100 dark:bg-red-300 flex-none group-hover:bg-red-200 dark:group-hover:bg-red-200 transition-all">
