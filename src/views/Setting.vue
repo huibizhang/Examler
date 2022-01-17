@@ -4,7 +4,7 @@
 
     <div class="flex-1 w-full bg-gray-100 dark:bg-gray-900 transition-all relative overflow-hidden">
       <div class="w-full h-full overflow-y-scroll space-y-3 p-3">
-        <div class="bg-white dark:bg-gray-800 dark:text-gray-200 transition-all rounded-lg shadow-md">
+        <div class="bg-white dark:bg-gray-800 dark:text-gray-200 transition-all rounded-lg shadow-md max-w-lg inset-0 mx-auto">
           <div class="text-xl font-bold p-3 pb-1 text-center">外觀</div>
           <div class="py-3 px-5 space-y-3 divide-y">
             <div class="flex justify-between items-center text-lg w-full px-3 dark:text-gray-300 transition-all">
@@ -31,7 +31,7 @@
         </div>
         
         <!-- 重設 -->
-        <div class="bg-white dark:bg-gray-800 dark:text-gray-200 transition-all rounded-lg shadow-md">
+        <div class="bg-white dark:bg-gray-800 dark:text-gray-200 transition-all rounded-lg shadow-md max-w-lg inset-0 mx-auto">
           <div class="text-xl font-bold p-3 pb-1 text-center">重設</div>
           <div class="py-3 px-5 text-center text-gray-400 text-sm">
             這個功能會清除整個應用程式的紀錄，並嘗試將設定還原到初始狀態，以確保應用程式運作正常。
@@ -43,7 +43,7 @@
         </div>
 
         <!-- 關於 -->
-        <div class="bg-white dark:bg-gray-800 dark:text-gray-200 transition-all rounded-lg shadow-md">
+        <div class="bg-white dark:bg-gray-800 dark:text-gray-200 transition-all rounded-lg shadow-md max-w-lg inset-0 mx-auto">
           <div class="text-xl font-bold p-3 pb-1 text-center">關於</div>
           <div class="py-3 px-5 text-center font-bold dark:text-gray-300 transition-all">
             Made by Tryto.
