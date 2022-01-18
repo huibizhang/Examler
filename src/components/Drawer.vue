@@ -142,7 +142,9 @@ export default {
           return exp.expId === currentExpId
         })
 
-        this.title = examinationPaper[0].title
+        if(examinationPaper[0]){
+          this.title = examinationPaper[0].title
+        }
       }
     }
   },

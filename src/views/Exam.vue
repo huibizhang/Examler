@@ -58,6 +58,7 @@
            :optionSign="'1'"
            :examSerial="i+1"
            :mode="mode"
+           :type="type"
            @userAnswered="recordAnswer(i,$event)"
            :onShowMistake="onShowMistake"
         ></Question>  
@@ -117,6 +118,7 @@ export default {
       onShowMistake: false,
       expId: "",
       range: [],
+      type: "屆"
     }
   },
   mounted() {
@@ -135,7 +137,7 @@ export default {
       data: {
         subject: _me.subject,
         mode: 'exam',
-        range: _me.range.join(','),
+        range: `'${_me.range.join(`','`)}'`,
         total: _me.total, 
         count: _me.count, 
       },
@@ -165,6 +167,14 @@ export default {
 
       if(examinationPapers && examinationPapers.length>0) {
 
+        const test = examinationPapers.filter(exp => {
+          return exp.expId === currentExpId
+        })
+        if(test.length===0){
+          this.$router.push("/")
+          return
+        }
+
         if(this.$route.query.expId!==undefined){
           currentExpId = this.$route.query.expId
         }
@@ -178,9 +188,10 @@ export default {
             expId: this.$route.query.expId,
             title: this.$route.query.title,
             subject: this.$route.query.subject,
-            range: this.$route.query.range.split(','),
+            range: this.$route.query.range.replace(/[\']*/g,'').split(','),
             total: this.$route.query.total,
             count: this.$route.query.count,
+            type: this.$route.query.type,
           }
           console.log(examinationPapers)
 
@@ -197,6 +208,7 @@ export default {
         this.count = examinationPaper[0].count
         this.expId = examinationPaper[0].expId
         this.range = examinationPaper[0].range
+        this.type = examinationPaper[0].type
       } else {
         if(this.$route.query.expId!==''){
           currentExpId = this.$route.query.expId
@@ -206,9 +218,10 @@ export default {
           expId: this.$route.query.expId,
           title: this.$route.query.title,
           subject: this.$route.query.subject,
-          range: this.$route.query.range.split(','),
+          range: this.$route.query.range.replace(/[\']*/g,'').split(','),
           total: this.$route.query.total,
           count: this.$route.query.count,
+          type: this.$route.query.type,
         }
         console.log(exp)
 
@@ -221,6 +234,7 @@ export default {
         this.count = exp.count
         this.expId = exp.expId
         this.range = exp.range
+        this.type = exp.type
       }
 
     },

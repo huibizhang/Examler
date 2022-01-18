@@ -72,7 +72,7 @@
                   v-model="selectedSessions"
                   class="appearance-none bg-check dark:bg-check-dark border-2 dark:border-gray-400 box-content checked:bg-green-400 checked:border-green-400 dark:checked:bg-green-500 dark:checked:bg-check w-6 h-6 rounded-full transition-all"
                 >
-                第 {{s.session}} 屆
+                {{type? `第 ${s.session} ${type}`: s.session}}
               </div>
               <div class="px-3 text-gray-500 dark:text-gray-400 transition-all">{{s.count}} 題</div>
             </label>
@@ -100,7 +100,7 @@
 
 <script>
 export default {
-  props:["open","subject","title","sessions"],
+  props:["open","subject","title","sessions","type"],
   data() {
     return {
       opened: false,
@@ -144,9 +144,10 @@ export default {
         `expId=${this.expIdGenerator()}`,
         `title=${this.expName}`,
         `subject=${this.subject}`,
-        `range=${this.selectedSessions.join(",")}`,
+        `range='${this.selectedSessions.join("','")}'`,
         `total=${this.totalCount()}`,
         `count=${this.count}`,
+        `type=${this.type}`
       ]
 
       console.log(query)

@@ -27,7 +27,12 @@
       v-if="mode==='review' || mode==='exam-finished'"
       class="text-blue-600 dark:text-blue-400 transition-all w-full text-right text-sm"
     >
-      {{ from(no,'屆') }}
+      {{
+        from(
+          no.indexOf('-')===-1? (`${session}-${no}`): no,
+          type? type: ''
+        )
+      }}
     </div>
 
     <!-- 選項 -->
@@ -62,6 +67,8 @@ export default {
     "examSerial",
     "onShowMistake",
     "inputUserAns",
+    "type",
+    "session",
   ],
   data () {
     return {
@@ -76,7 +83,7 @@ export default {
   methods: {
     from (no, useName) {
       const noString = no.split('-')
-      return `(來自題庫：第 ${noString[0]} ${useName} 第 ${noString[1]} 題)`
+      return `(來自題庫：${useName?'第 ':''}${noString[0]}${useName?` ${useName}`:''} 第 ${noString[1]} 題)`
     },
     optionType (typeCode) {
       var ot = ''

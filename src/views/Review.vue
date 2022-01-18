@@ -15,6 +15,7 @@
            v-bind="q"
            :optionSign="'1'"
            :mode="'review'"
+           :type="type"
         />
       </div>
       <LoadingScreen :open="open" />
@@ -38,6 +39,7 @@ export default {
       subject: "",
       datas: "",
       range: [],
+      type: "屆",
       open: true,
     }
   },
@@ -53,7 +55,7 @@ export default {
       data: {
         subject: _me.subject,
         mode: 'review',
-        range: _me.range.join(",")
+        range: `'${_me.range.join(`','`)}'`
       },
     })
     .then(function (response) {
@@ -73,6 +75,14 @@ export default {
 
       if(examinationPapers && examinationPapers.length>0) {
         
+        const test = examinationPapers.filter(exp => {
+          return exp.expId === currentExpId
+        })
+        if(test.length===0){
+          this.$router.push("/")
+          return
+        }
+
         const examinationPaper = examinationPapers.filter(exp => {
           console.log(exp.expId)
           return exp.expId === currentExpId
@@ -82,6 +92,7 @@ export default {
         this.subject = examinationPaper[0].subject
         this.expId = examinationPaper[0].expId
         this.range = examinationPaper[0].range
+        this.type = examinationPaper[0].type
       }
     },
   },
