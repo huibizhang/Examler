@@ -2800,6 +2800,13 @@ supports-color@^7.0.0, supports-color@^7.1.0:
   dependencies:
     has-flag "^4.0.0"
 
+tailwind-flagger@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/tailwind-flagger/-/tailwind-flagger-0.1.0.tgz#52158000ed7e97e787d042e9d7384b333b176da0"
+  integrity sha512-As7Buf8UHWVG7lF0vIStV7RuGYWyMo2cDAmGnBDB/kDS+CsyzCUADSE5//KkautTykoaOU451azTy2F4K1Eg6Q==
+  dependencies:
+    vitawind "^1.2.8"
+
 tailwindcss@2.2.19:
   version "2.2.19"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-2.2.19.tgz#540e464832cd462bb9649c1484b0a38315c2653c"
@@ -2955,7 +2962,7 @@ util-deprecate@^1.0.2:
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
   integrity sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=
 
-vitawind@^1.2.9:
+vitawind@^1.2.8, vitawind@^1.2.9:
   version "1.2.9"
   resolved "https://registry.yarnpkg.com/vitawind/-/vitawind-1.2.9.tgz#bc57d95ee740d19603e23c63b607e44e3bfb3e26"
   integrity sha512-ERnCuuncyTkPNpWuXPpus8S/KtXBNNAtuUJ2O9gBqioTodNTV3KOfATCTHVpbLlJ/8CalF1IXRKIoaTOY3NeJw==

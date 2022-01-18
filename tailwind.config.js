@@ -1,4 +1,5 @@
 const colors = require('tailwindcss/colors')
+const flagger = require('tailwind-flagger')
 
 module.exports = {
   mode: 'jit',
@@ -15,5 +16,7 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    flagger
+  ],
 }
