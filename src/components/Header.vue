@@ -49,6 +49,7 @@ export default {
     return {
       opened: false,
       followSystemSwitchDarkMode: true,
+      theme: "system",
     }
   },
   mounted() {
@@ -58,6 +59,7 @@ export default {
         "setting",
         JSON.stringify({
           followSystemSwitchDarkMode: true,
+          theme: "system",
         })
       )
     }
@@ -73,6 +75,7 @@ export default {
 
       if(setting){
         this.followSystemSwitchDarkMode = setting['followSystemSwitchDarkMode']
+        this.theme = setting['theme']? setting['theme']: "system"
         console.log(this.followSystemSwitchDarkMode)
       } else {
         this.followSystemSwitchDarkMode = true
@@ -82,13 +85,13 @@ export default {
       
       console.log(matchMedia, matchMedia.matches)
 
-      if(matchMedia.matches){
+      if(matchMedia.matches || this.theme==='dark'){
         document.body.classList.add("dark")
       } else {
         document.body.classList.remove("dark")
       }
       
-      if(this.followSystemSwitchDarkMode) {
+      if(this.followSystemSwitchDarkMode || this.theme==='dark') {
         setTimeout(()=>this.systemPreferDetecting(),800)
       } else {
         document.body.classList.remove("dark")
