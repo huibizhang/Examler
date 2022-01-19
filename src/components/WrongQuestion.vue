@@ -17,7 +17,7 @@
       <span class="flex-1 text-center">
         答錯率：
         <span class="text-red-500 dark:text-red-300 font-bold">
-          {{`${Number(wrongs*100/occurrence)}% (${wrongs}/${occurrence})`}}
+          {{`${Math.round(wrongs*100/occurrence)}% (${wrongs}/${occurrence})`}}
         </span>
       </span>
     </div>
