@@ -104,7 +104,7 @@ export default {
           _me.datas = {
             results: response.data.results.filter(e=>e.wrongs>0)
           }
-          _me.datas.results.sort((a,b)=>a.wrongs-b.wrongs)
+          _me.datas.results.sort((a,b)=>b.wrongs-a.wrongs)
           _me.open = false
         });
       }
