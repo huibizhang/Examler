@@ -41,6 +41,11 @@ const routes = [
     name: "HistoryReview",
     component: () => import("../views/HistoryReview.vue"),
   },
+  {
+    path: "/statistics/",
+    name: "Statistics",
+    component: () => import("../views/Statistics.vue"),
+  },
 ];
 
 export default createRouter({
